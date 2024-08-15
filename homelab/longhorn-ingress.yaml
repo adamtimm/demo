@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  auth: aGlwcG86JGFwcjEkSUVTQkxSSm8kbWpCazFzT25hLkdySWZ0UlpDV0hPLwo=
+kind: Secret
+metadata:
+  creationTimestamp: "2023-12-27T16:29:02Z"
+  name: basic-auth
+  namespace: longhorn-system
+  resourceVersion: "1687220"
+  uid: 7c33f1f3-5cce-419d-8523-e99da335baae
+type: Opaque
