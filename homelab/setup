@@ -1,0 +1,24 @@
+#from https://docs.rke2.io/install/quickstart
+
+sudo systemctl disable --now ufw
+sudo systemctl disable --now apparmor.service
+
+#restart machine
+
+curl -sfL https://get.rke2.io | sh -
+
+systemctl enable rke2-server.service
+
+systemctl start rke2-server.service
+
+journalctl -u rke2-server -f
+
+#add flag to kubectl commands --kubeconfig=rke2.yaml
+#create postgres operator namespace
+
+kubectl create ns postgres-operator --kubeconfig=rke2.yaml
+
+kubectl apply -k kustomize/install/namespace
+
+kubectl apply --server-side -k kustomize/install/default
+
